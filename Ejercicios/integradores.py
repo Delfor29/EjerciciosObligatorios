@@ -33,15 +33,30 @@ frecuenciaPalabra()
 '''
 
 # 4. Escribir una función que reciba una cadena de caracteres y devuelva un diccionario con cada palabra que contiene y la cantidad de veces que aparece (frecuencia). Escribir otra función que reciba el diccionario generado con la función anterior y devuelva una tupla con la palabra más repetida y su frecuencia.
+'''
+def frecuenciaPalabra():
+    cadena = input('Ingrese una cadena de caracteres: ')
+    palabras = cadena.lower().split()
+    frec = {}
+    for i in palabras:
+        frec[i] = frec.get(i, 0) + 1
+    return print(frec)
 
+def tuplaDic(frec):
+    palabraMax = None
+    frecuenciaMax = 0
+    for palabra, frecuencia in frec.items():
+        if frecuencia > frecuenciaMax:
+            palabraMax = palabra
+            frecuenciaMax = frecuencia
+    return (palabraMax, frecuenciaMax)
 
+frec = frecuenciaPalabra()
+palabraMax, frecuenciaMax = tuplaDic(frec)
+'''
 
-# 5. Sabiendo que ValueError es la excepción que se lanza cuando no podemos convertir una
-# cadena de texto en su valor numérico, escriba una función get_int() que lea un valor entero
-# del usuario y lo devuelva, iterando mientras el valor no sea correcto. Intente resolver el
-# ejercicio tanto de manera iterativa como recursiva.
-# 6. Crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construya los
-# siguientes métodos para la clase:
+# 5. Sabiendo que ValueError es la excepción que se lanza cuando no podemos convertir una cadena de texto en su valor numérico, escriba una función get_int() que lea un valor entero del usuario y lo devuelva, iterando mientras el valor no sea correcto. Intente resolver el ejercicio tanto de manera iterativa como recursiva.
+# 6. Crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. Construya los siguientes métodos para la clase:
 #  Un constructor, donde los datos pueden estar vacíos.
 #  Los setters y getters para cada uno de los atributos. Hay que validar las entradas de
 # datos.
